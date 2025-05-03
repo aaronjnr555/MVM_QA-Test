@@ -7,4 +7,8 @@ This repository contains my QA test deliverables for the MVM QA Take-Home Assign
 [Bug Tracker Sheet](https://docs.google.com/spreadsheets/d/1l1jmifTUNmgC5C4kexmwo_l7xwchIpFITFtJj3GiEVU/edit?gid=0#gid=0)
 
 ## Test Videos
+<<<<<<< HEAD
 [Test Execution Videos on Google Drive](https://drive.google.com/drive/folders/your_folder_link)
+=======
+[Test Execution Videos on Google Drive](https://drive.google.com/file/d/1yjABlMUyqmaAfmlvvOpC4bu5R-RzqBaP/view?usp=sharing)
+>>>>>>> 918d56850ba3f6638cea464ff0ccc920de30f106
