@@ -23,6 +23,7 @@ To perform functional and UI/UX testing on the Breach web platform and ensure re
 - UI/UX Testing
 - Responsive Design Testing
 - Bug Reporting
+- API Testing (Postman)
 
 ## Tools Used
 - Chrome DevTools

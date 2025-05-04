@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "49cb099c-40bf-43eb-aa0c-20e8e80545e7",
+		"name": "MVM-Take_Home",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29702272",
+		"_collection_link": "https://www.postman.com/martian-moon-404630/workspace/mvm-task/collection/29702272-49cb099c-40bf-43eb-aa0c-20e8e80545e7?action=share&source=collection_link&creator=29702272"
+	},
+	"item": [
+		{
+			"name": "Create a new account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request and HTTP status is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Token and User ID exist\", function () {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.token).to.not.be.undefined;",
+							"    pm.expect(response.userId).to.not.be.undefined;",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"daaron5@outlook.com\",\n    \"password\": \"Chiemezie@1996\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://breach-api.qa.mvm-tech.xyz/api/auth/register",
+					"protocol": "https",
+					"host": [
+						"breach-api",
+						"qa",
+						"mvm-tech",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login into existing account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request and HTTP status is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Token and User ID exist\", function () {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.token).to.not.be.undefined;",
+							"    pm.expect(response.userId).to.not.be.undefined;",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"daaron5@outlook.com\",\n    \"password\": \"Chiemezie@1996\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://breach-api.qa.mvm-tech.xyz/api/auth/login",
+					"protocol": "https",
+					"host": [
+						"breach-api",
+						"qa",
+						"mvm-tech",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Categories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"",
+							"// Log the response fields and status code to the console",
+							"console.log({",
+							"    id: response[0].id,",
+							"    name: response[0].name,",
+							"    status: pm.response.code",
+							"});",
+							"",
+							"pm.test(\"Successful request and HTTP status is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Each item in the array has correct fields and types\", function () {",
+							"    response.forEach(item => {",
+							"        pm.expect(item).to.have.property(\"id\");",
+							"        pm.expect(item.id).to.be.a(\"number\");",
+							"",
+							"        pm.expect(item).to.have.property(\"name\");",
+							"        pm.expect(item.name).to.be.a(\"string\");",
+							"    });",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 106,\n    \"name\": \"string\",\n    \"icon\": \"string\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://breach-api.qa.mvm-tech.xyz/api/blog/categories",
+					"protocol": "https",
+					"host": [
+						"breach-api",
+						"qa",
+						"mvm-tech",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"blog",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"",
+							"// Log the response fields and status code to the console",
+							"console.log({",
+							"    id: response[0].id,",
+							"    title: response[0].title,",
+							"    status: pm.response.code",
+							"});",
+							"",
+							"pm.test(\"Successful request and HTTP status is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Each item in the array has correct fields and types\", function () {",
+							"    response.forEach(item => {",
+							"        pm.expect(item).to.have.property(\"id\");",
+							"        pm.expect(item.id).to.be.a(\"number\");",
+							"",
+							"        pm.expect(item).to.have.property(\"title\");",
+							"        pm.expect(item.title).to.be.a(\"string\");",
+							"    });",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://breach-api.qa.mvm-tech.xyz/api/blog/posts",
+					"protocol": "https",
+					"host": [
+						"breach-api",
+						"qa",
+						"mvm-tech",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"blog",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Interest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"",
+							"// Log the response fields and status code to the console",
+							"console.log({",
+							"    response: response,",
+							"    status: pm.response.code",
+							"});",
+							"",
+							"pm.test(\"Successful request and HTTP status is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{vault:authorization-secret}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://breach-api.qa.mvm-tech.xyz/api/users/106/interests",
+					"protocol": "https",
+					"host": [
+						"breach-api",
+						"qa",
+						"mvm-tech",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"users",
+						"106",
+						"interests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save User Content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request and HTTP status is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{MVM_Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"interests\": [\n        20, 18, 1\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://breach-api.qa.mvm-tech.xyz/api/users/106/interests",
+					"protocol": "https",
+					"host": [
+						"breach-api",
+						"qa",
+						"mvm-tech",
+						"xyz"
+					],
+					"path": [
+						"api",
+						"users",
+						"106",
+						"interests"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "MVM_Token",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
